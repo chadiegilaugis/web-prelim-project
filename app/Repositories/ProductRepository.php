@@ -1,0 +1,44 @@
+<?php
+
+namespace App\Repositories;
+
+use App\Models\Product;
+use App\Repositories\BaseRepository;
+
+/**
+ * Class ProductRepository
+ * @package App\Repositories
+ * @version September 26, 2021, 12:33 pm UTC
+*/
+
+class ProductRepository extends BaseRepository
+{
+    /**
+     * @var array
+     */
+    protected $fieldSearchable = [
+        'Product_name',
+        'Description',
+        'Price',
+        'Manufacturer',
+        'Date_manufactured'
+    ];
+
+    /**
+     * Return searchable fields
+     *
+     * @return array
+     */
+    public function getFieldsSearchable()
+    {
+        return $this->fieldSearchable;
+    }
+
+    /**
+     * Configure the Model
+     **/
+    public function model()
+    {
+        return Product::class;
+    }
+}
